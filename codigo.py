@@ -16,7 +16,7 @@ class Entrevista:
     def create_csv(self):
         # Verifica se o arquivo já existe e se não está vazio
         if not os.path.isfile("saída.csv") or os.stat("saída.csv").st_size == 0:
-            with open("saída.csv", "a") as arquivo:
+            with open("saída.csv", "a", newline="", encoding="utf-8") as arquivo:
                 w = csv.writer(arquivo)                
                 w.writerow(['idade', 'genero', 'r1', 'r2', 'r3', 'r4', 'data'])
 
