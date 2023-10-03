@@ -1,11 +1,12 @@
-import csv # import da biblioteca que irá editar um arquivo csv
-from datetime import datetime as dt # biblioteca que fornece data e hora
-from os import * # biblioteca para manipular o cmd
-from time import sleep 
+import csv  # import da biblioteca que irá editar um arquivo csv
+import os  # biblioteca para manipular o cmd
+from datetime import datetime as dt  # biblioteca que fornece data e hora
+from time import sleep
+
 
 def clear():
     sleep(1)
-    system('cls')
+    os.system('cls')
 
 class Entrevista:
     def __init__(self):
@@ -14,8 +15,8 @@ class Entrevista:
 
     def create_csv(self):
         # Verifica se o arquivo já existe e se não está vazio
-        if not path.isfile("saída.csv") or stat("saída.csv").st_size == 0:
-            with open("saída.csv", "a", newline="", encoding="utf-8") as arquivo:
+        if not os.path.isfile("saída.csv") or os.stat("saída.csv").st_size == 0:
+            with open("saída.csv", "a") as arquivo:
                 w = csv.writer(arquivo)                
                 w.writerow(['idade', 'genero', 'r1', 'r2', 'r3', 'r4', 'data'])
 
